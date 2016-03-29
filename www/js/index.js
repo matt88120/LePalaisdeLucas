@@ -25,5 +25,9 @@ var app = {
     },
        onDeviceReady: function() {
         screen.lockOrientation('landscape');
+        navigator.splashscreen.show();
+		window.setTimeout(function () {
+		    navigator.splashscreen.hide();
+		}, splashDuration - fadeDuration);
     },
 };
