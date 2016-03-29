@@ -1,0 +1,630 @@
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+	a {
+		text-decoration: none;
+		outline: none;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	h1 {
+		font-size: 50px;
+		line-height: 55px;
+	}
+	h2 {
+		font-size: 42px;
+		line-height: 46px;
+		font-weight: 400;
+	}
+	h3 {
+		font-size: 38px;
+		line-height: 42px;
+		font-weight: 400;
+	}
+	h4 {
+		font-size: 32px;
+		line-height: 36px;
+		font-weight: 400;
+	}
+	.button {
+		background: @color-primary;
+		color: @color-initial;
+		padding: 8px 15px;
+		.transition();
+		&.button-clear {
+			color: @color-primary;
+			border: solid 1px @color-primary;
+		}
+		&:hover {
+			background: darken(@color-primary, 10%);
+			color: @color-initial;
+		}
+	}
+	.right {
+		text-align: right;
+	}
+	.justify {
+		text-align: justify;
+	}
+	.center {
+		text-align: center;
+	}
+	.grayscale {
+		.transition();
+		&:hover {
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			-ms-filter: grayscale(100%);
+			-o-filter: grayscale(100%);
+			filter: grayscale(100%);
+			filter: url(../img/grayscale.svg);
+			filter: gray;
+		}
+	}
+	.sepia {
+		.transition();
+		&:hover {
+			-webkit-filter: sepia(50%);
+			-moz-filter: sepia(50%);
+			-ms-filter: sepia(50%);
+			-o-filter: sepia(50%);
+			filter: sepia(50%);
+		}
+	}
+	.contrast {
+		.transition();
+		&:hover {
+			-webkit-filter: contrast(130%);
+			-moz-filter: contrast(130%);
+			-ms-filter: contrast(130%);
+			-o-filter: contrast(130%);
+			filter: contrast(130%);
+		}
+	}
+	.delay-1 {
+		.delay(.1s);
+	}
+	.delay-2 {
+		.delay(.2s);
+	}
+	.delay-3 {
+		.delay(.3s);
+	}
+	.delay-4 {
+		.delay(.4s);
+	}
+	.delay-5 {
+		.delay(.5s);
+	}
+	.delay-6 {
+		.delay(.6s);
+	}
+	.delay-7 {
+		.delay(.7s);
+	}
+	.delay-8 {
+		.delay(.8s);
+	}
+	.delay-9 {
+		.delay(.9s);
+	}
+	.delay-10 {
+		.delay(1s);
+	}
+	.delay-15 {
+		.delay(1.5s);
+	}
+	.delay-20 {
+		.delay(2s);
+	}
+	.delay-25 {
+		.delay(2.5s);
+	}
+	.delay-30 {
+		.delay(3s);
+	}
+	#app {
+		width: 100%;
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: hidden;
+		background: url(../img/fond.jpg) center center no-repeat;
+		background-size: cover;
+		.page {
+			display: none;
+			width: 100%;
+			height: 100vh;
+			overflow-x: hidden;
+			overflow-y: auto;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			&.current {
+				display: block;
+			}
+			.sidebar {
+				position: fixed;
+				padding: 20px;
+				width: 25%;
+				top: 0;
+				left: 0;
+				right: 0;
+				.gohome {
+					position: absolute;
+					top: 0;
+					left: 0;
+					font-size: 20px;
+					color: @blanc;
+					width: 30px;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+					background: lighten(@brun, 10%);
+				}
+				.logo {
+					max-width: 70%;
+					display: block;
+					height: auto;
+					padding-top: 20px;
+				}
+				.discover {
+					text-transform: uppercase;
+					color: @blanc;
+					font-weight: bold;
+					padding: 20px 0;
+					&:after {
+						content: "";
+						width: 50px;
+						height: 2px;
+						background: @orange;
+						display: block;
+						margin-top: 18px;
+					}
+				}
+				nav {
+					ul {
+						list-style: none;
+						padding: 0px 0px 20px 20px;
+						margin: 0;
+						li {
+							display: block;
+							position: relative;
+							a {
+								display: block;
+								padding: 8px 0px 0px 0px;
+								text-transform: uppercase;
+								color: @blanc;
+								font-size: 24px;
+								line-height: 24px;
+								.transition();
+								text-decoration: none;
+								span {
+									display: block;
+									font-size: 15px;
+									color: lighten(@brun, 10%);
+									text-transform: none;
+									font-weight: bold;							
+								}
+							}
+							&:before {
+								display: block;
+								opacity: 0;
+								width: 2px;
+								height: 24px;
+								background: @blanc;
+								content: "";
+								.transform(rotateZ(0deg));
+								position: absolute;
+								left: -10px;
+								top: 8px;
+								.transition();
+							}
+							&:after {
+								display: block;
+								content: "• • • • •";
+								color: @orange;
+								font-size: 12px;
+								.transition();
+							}
+							&.current {
+								text-decoration: none;
+								a {
+									color: @orange;
+									text-decoration: none;
+								}
+								&:before {
+									opacity: 1;
+									.transform(rotateZ(12deg));
+								}
+							}
+						}
+					}
+				}
+				.link {
+					display: block;
+					margin-top: 40px;
+					color: @blanc;
+					strong {
+						text-transform: uppercase;
+						font-size: 1.2em;
+						color: lighten(@brun, 20%);
+						display: block;
+					}
+					img {
+						height: 60px;
+						width: auto;
+					}
+				}
+			}
+			.content {
+				position: fixed;
+				width: 75%;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				#ficheproduit {
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					background: @blanc;
+					.transition();
+					z-index: 9999;
+					overflow: hidden;
+					overflow-x: hidden;
+					overflow-y: auto;
+					-webkit-overflow-scrolling: touch;
+					.transform(translateX(100%));
+					&.active {
+						.transform(translateX(0%));
+					}
+					#closeficheproduit {
+						position: absolute;
+						left: 0;
+						top: 0;
+						bottom: 0;
+						width: 60px;
+						background: @orange;
+						color: @blanc;
+						text-align: center;
+						i {
+							font-size: 24px;
+							width: 46px;
+							height: 46px;
+							left: 7px;
+							line-height: 46px;
+							text-align: center;
+							display: inline-block;
+							.centerTop();
+							.transition();
+						}
+					}
+					.loader {
+						border-color: @orange;
+					}
+					#lafiche {
+						display: block;
+						padding: 40px 60px;
+						.left {
+							display: block;
+							width: 50%;
+							float: left;
+							box-sizing: border-box;
+							padding: 0 40px;
+						}
+						.right {
+							display: block;
+							float: left;
+							width: 50%;
+							box-sizing: border-box;
+							padding: 0 40px;
+							text-align: left;
+							.title {
+								color: @orange;
+								text-transform: uppercase;
+								font-size: 32px;
+								line-height: 32px;
+								margin-bottom: 20px;
+								margin-top: 20px;
+								font-weight: bold;
+								span {
+									font-size: 24px;
+									text-transform: none;
+									display: block;
+									margin-top: -5px;
+									font-weight: normal;
+								}
+							}
+							.accroche {
+								color: @brun;
+								font-weight: bold;
+								font-size: 1.2em;
+								margin-left: -20px;
+								margin-bottom: 20px;
+								&:before {
+									content: "";
+									width: 2px;
+									height: 20px;
+									vertical-align: middle;
+									background: @orange;
+									.transform(rotate(12deg));
+									display: inline-block;
+									margin-right: 5px;
+								}
+							}
+							.description {
+								color: lighten(@brun, 20%);
+								margin-bottom: 20px;
+							}
+							.parfums, .personnes {
+								color: @brun;
+								font-weight: bold;
+								font-size: 1.2em;
+								margin-bottom: 5px;
+								&:before {
+									content: "";
+									width: 2px;
+									height: 20px;
+									vertical-align: middle;
+									background: @orange;
+									.transform(rotate(12deg));
+									display: inline-block;
+									margin-right: 5px;
+								}
+							}
+							.prix {
+								display: inline-block;
+								margin-top: 30px;
+								background: @orange;
+								color: @blanc;
+								padding: 5px 10px;
+								font-size: 30px;
+								font-weight: bold;
+							}
+						}
+					}
+				}
+				.catalogue {
+					color: @blanc;
+					.produit {
+						display: block;
+						float: left;
+						width: 31%;
+						margin: 1%;
+						position: relative;
+						height: 260px;
+						border-bottom: solid 4px @orange;
+						background-size: cover;
+						background-position: center center;
+						background-repeat: no-repeat;
+						.mentions {
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							right: 0;
+							background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+							background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+							background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+							.titre {
+								text-transform: uppercase;
+								color: @blanc;
+								font-size: 20px;
+								line-height: 22px;
+								padding-right: 50px;
+								padding: 10px;
+								span {
+									font-size: 15px;
+									text-transform: none;
+									font-weight: bold;
+									line-height: 22px;
+									color: fadeOut(@orange, 10%);
+									display: block;
+									position: relative;
+									&:before {
+										content: "";
+										width: 2px;
+										height: 22px;
+										position: absolute;
+										color: @orange;
+										left: -5px;
+									}
+								}
+							}
+							.prix {
+								position: absolute;
+								right: 10px;
+								bottom: 10px;
+								font-size: 26px;
+								font-weight: bold;
+								color: @blanc;
+							}
+						}
+					}
+					&.promotions {
+						.produit {
+							width: 100%;
+							margin: 20px 0;
+							background: transparent;
+							height: 300px;
+							border-bottom: none;
+							.image {
+								height: 300px;
+								display: block;
+								width: 30%;
+								float: left;
+								background-size: cover;
+								background-position: center center;
+								background-repeat: no-repeat;
+								border-right: solid 10px @brun;
+								position: relative;
+								&:after {
+									display: block;
+									position: absolute;
+									content: "";
+									background: url(../img/star.png) center center;
+									width: 60px;
+									height: 60px;
+									background-size: cover;
+									right: -35px;
+									top: 50%;
+									.centerTop();
+								}
+							}
+							.description {
+								display: block;
+								float: left; 
+								width: 70%;
+								background: @blanc;
+								height: 300px;
+								overflow: hidden;
+								padding: 20px 40px;
+								.title {
+									text-transform: uppercase;
+									color: @orange;
+									font-size: 24px;
+									line-height: 28px;
+									margin-bottom: 10px;
+								}
+								.promo {
+									color: lighten(@brun, 30%);
+									font-weight: bold;
+									margin-bottom: 10px;
+								}
+								.sousstitre {
+									text-transform: uppercase;
+									color: @brun;
+									font-size: 24px;
+									line-height: 28px;
+									margin-bottom: 10px;
+									&:before {
+										content: ">";
+										color: @orange;
+										display: inline-block;
+										padding-right: 5px;
+									}
+								}
+								.disponibilite {
+									color: @brun;
+									font-weight: bold;
+									margin-bottom: 20px;
+									position: relative;
+									font-size: 1.2em;
+									&:before {
+										display: inline-block;
+										opacity: 1;
+										width: 2px;
+										height: 24px;
+										background: @orange;
+										margin-right: 5px;
+										content: "";
+										.transform(rotateZ(12deg));
+										vertical-align: middle;
+									}
+								}
+								.prix {
+									font-weight: bold;
+									font-size: 30px;
+									color: @blanc;
+									background: @orange;
+									padding: 5px 10px;
+									display: inline-block;
+								}
+							}
+						}
+					}
+				}
+			}
+			#filtres {
+				height: 40px;
+				ul {
+					margin: 0;
+					padding: 10px;
+					li {
+						display: inline-block;
+						text-transform: uppercase;
+						font-size: 16px;
+						color: @blanc;
+						font-weight: normal;
+						line-height: 20px;
+						position: relative;
+						padding: 0 10px;
+						.transition();
+						&:before {
+							content: "";
+							width: 2px;
+							height: 20px;
+							position: absolute;
+							left: 0px;
+							.transform(rotateZ(12deg));
+							background: @orange;
+						}
+						&.current {
+							color: @orange;
+						}
+					}
+				}
+			}
+			.grid {
+				display: block;
+				position: absolute;
+				box-sizing: border-box;
+				padding: 20px 20px 60px 20px;
+				width: 100%;
+				overflow-x: hidden;
+				overflow-y: auto;
+				-webkit-overflow-scrolling: touch;
+				background: fadeOut(lighten(@brun, 20%), 70%);
+				background-size: cover;
+				.loader {
+					position: absolute;
+					top: 100px;
+					left: 50%;
+					.transform(translateX(-50%));
+				}
+			}
+			#grid-promotions {
+				padding: 20px 40px;
+			}
+			&#home {
+				#logo {
+					display: block;
+					position: absolute;
+					.centerAll();
+					z-index: 999;
+					img {
+						width: 250px;
+						height: auto;
+					}
+				}
+				a {
+					display: block;
+					float: left;
+					width: 50%;
+					height: 100vh;
+					span {
+						position: absolute;
+						.centerTop();
+						img {
+							height: 170px;
+							width: auto;
+						}
+					}
+					&#catalogue-part {
+						background: url(../img/intro-catalogue.jpg) right center no-repeat;
+						background-size: cover;
+						text-align: left;
+					}
+					&#promo-part {
+						background: url(../img/intro-promos.jpg) left center no-repeat;
+						background-size: cover;
+						text-align: right;
+						span {
+							right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,72 @@
+.transition(@string: all 0.6s 0.2s cubic-bezier(0.19, 1, 0.22, 1)) {
+    -webkit-transition : @string;
+       -moz-transition : @string;
+        -ms-transition : @string;
+            transition : @string;
+}
+.transform(@string) {
+    -webkit-transform: @string;
+       -moz-transform: @string;
+        -ms-transform: @string;
+            transform: @string;
+}
+.placeholder(@color) {
+    &::-webkit-input-placeholder { color:@color; font-style: italic; opacity: .8 }
+    &::-moz-placeholder { color:@color; font-style: italic; opacity: .8  } /* firefox 19+ */
+    &:-ms-input-placeholder { color:@color; font-style: italic; opacity: .8 } /* ie */
+    input:-moz-placeholder { color:@color; font-style: italic; opacity: .8 }
+}
+.radius(@value) {
+    -webkit-border-radius: @value;
+       -moz-border-radius: @value;
+        -ms-border-radius: @value;
+            border-radius: @value;
+}
+.animated(@string: .5s) {
+  	-webkit-animation-duration: @string;
+  	   -moz-animation-duration: @string;
+  	   	-ms-animation-duration: @string;
+  	   		animation-duration: @string;
+}
+.delay(@delay) {
+	-webkit-animation-delay: @delay;
+	-moz-animation-delay: @delay;
+	-ms-animation-delay: @delay;
+    animation-delay: @delay;
+}
+.shadow(@string: 0px 0px 10px rgba(0,0,0,0.5)) {
+	-webkit-box-shadow: @string;
+	-moz-box-shadow: @string;
+	-ms-box-shadow: @string;
+	box-shadow: @string;
+}
+.centerAll() {
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	.transform(translateX(-50%) translateY(-50%)); 
+}
+.centerTop() {
+	top: 50%;
+	position: absolute;
+	.transform(translateY(-50%)); 
+}
+.column(@number, @sep) {
+    -webkit-column-count: @number; 
+    -moz-column-count: @number; 
+    column-count: @number;
+    -webkit-column-gap: @sep; /* Chrome, Safari, Opera */
+    -moz-column-gap: @sep; /* Firefox */
+    column-gap: @sep;
+}
+.filter(@string) {
+	filter: @string;
+    -webkit-filter: @string;
+    -moz-filter: @string;
+    -ms-filter: @string;
+}
+.animation(@name, @duration, @ease, @delay, @iteration, @direction) {
+	-webkit-animation: @name @duration @ease @delay @iteration @direction;
+	-moz-animation: @name @duration @ease @delay @iteration @direction;
+	animation: @name @duration @ease @delay @iteration @direction;
+}

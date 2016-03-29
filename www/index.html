@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+       
+        <link rel="stylesheet" type="text/css" href="css/normalize.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="css/loaders.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.min.css" />
+        
+        <script type="text/javascript" src="js/lib/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="cordova.js"></script> 
+		<script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/scripts.min.js"></script>
+        
+        <title>Le Palais de Lucas</title>
+    </head>
+    <body>
+        <div id="app">
+        	
+        	<div id="home" class="page current animated">
+	        	<div id="logo" class="animated fadeIn delay-5">
+		        	<img src="img/intro-logo.png">
+	        	</div>
+	        	<a href="#categorie" class="animated slideInLeft" id="catalogue-part">
+		        	<span>
+		        		<img src="img/intro-bouton-catalogue.png" />
+		        	</span>
+	        	</a>
+	        	<a href="#promotion" class="animated slideInRight" id="promo-part">
+		        	<span>
+		        		<img src="img/intro-bouton-coeur.png" />
+		        	</span>
+	        	</a>
+        	</div>
+			<div id="categorie" class="page animate">
+				<div class="row">
+					<div class="sidebar">
+						<a href="#home" class="gohome animated fadeInDown delay-10">
+							<i class="fa fa-home"></i>
+						</a>
+						<img src="img/logo.png" class="logo animated fadeIn" />
+						<div class="discover animated fadeInLeft">
+							Découvrez tous<br />nos produits
+						</div>
+						<nav>
+							<ul>
+								
+								
+							</ul>
+							<script id="template_menu" type="x-tmpl-mustache">
+								<li class="animated fadeInLeft delay-{{@index}}" data-id="{{id}}">
+									<a href="#">
+										{{name}}
+										<span>{{count}} produits</span>
+									</a>
+								</li>
+							</script>
+						</nav>
+						<a class="link animated fadeInUp delay-10" href="#promotion">
+							<div class="row">
+								<div class="col-xs-3">
+									<img src="img/star.png" />
+								</div>
+								<div class="col-xs-9">
+									<strong>Découvrez ici</strong>
+									nos coups de coeurs, <br />promotions & bonnes affaires...
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="content">
+						<div id="ficheproduit">
+							<div data-loader="circle-side" class="loader" id="ficheloader"></div>
+							<div id="closeficheproduit">
+								<i class="fa fa-close"></i>
+							</div>
+							<div id="lafiche"></div>
+							<script id="template_fiche" type="x-tmpl-mustache">
+								<div class="left">
+									<img src="{{featuredimage}}" class="animated fadeInUp delay-5 img-responsive"/>
+								</div>
+								<div class="right">
+									<div class="title animated fadeInRight delay-1">{{{post_title}}}<span>{{{custom_fields.sous_titre}}}</span></div>
+									<div class="accroche animated fadeInRight delay-2">{{{custom_fields.accroche_commerciale}}}</div>
+									<div class="description animated fadeInRight delay-3">{{{custom_fields.description_du_produit}}}</div>
+									<div class="parfums animated fadeInRight delay-4">{{{custom_fields.parfums_disponibles}}}</div>
+									<div class="personnes animated fadeInRight delay-5">Pour {{custom_fields.a_deguster_pour}} personne(s)</div>
+									<div class="prix animated fadeInRight delay-6">{{custom_fields.prix}}<sup>€</sup></div>
+								</div>
+							</script>
+						</div>
+						<div id="filtres">
+							<ul class="animated fadeIn"></ul>
+							<script id="template_filtres" type="x-tmpl-mustache">
+								{{#subcategory}}
+								<li data-theme="{{id}}">{{name}}</li>
+								{{/subcategory}}
+							</script>
+						</div>
+						
+						<div class="grid animated fadeIn" id="grid-produits">
+							<div data-loader="circle-side" class="loader"></div>
+							<div class="catalogue">
+								
+							</div>
+							<script id="template_catalogue" type="x-tmpl-mustache">
+								<div class="produit animated fadeIn" style="background-image: url({{featuredimage}})" data-target="{{ID}}">
+									<div class="mentions">
+										<div class="titre">
+											{{post_title}}
+											<span>{{custom_fields.sous_titre}}</span>
+										</div>
+										<div class="prix">
+											{{custom_fields.prix}}<sup>€</sup>
+										</div>
+									</div>
+								</div>
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="promotion" class="page animated">
+				<div class="row">
+					<div class="sidebar">
+						<a href="#home" class="gohome animated fadeInDown delay-10">
+							<i class="fa fa-home"></i>
+						</a>
+						<img src="img/logo.png" class="logo animated fadeIn" />
+						<div class="discover animated fadeInLeft">
+							Découvrez <br />nos produits<br />en promotion
+						</div>
+						<nav>
+							<ul>
+								
+							</ul>
+						</nav>
+						<a class="link animated fadeInUp delay-10" href="#categorie">
+							<div class="row">
+								<div class="col-xs-2">
+									<img src="img/half-star.png" />
+								</div>
+								<div class="col-xs-10">
+									<strong>Découvrez ici</strong>
+									notre catalogue produits<br />avec nos spécialités.
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="content">
+						<div class="grid animated fadeIn" id="grid-promotions">
+							<div data-loader="circle-side" class="loader"></div>
+							<div class="catalogue promotions">
+								
+							</div>
+							<script id="template_promotions" type="x-tmpl-mustache">
+								<div class="produit animated zoomIn" data-target="{{ID}}">
+									<div class="image" style="background-image: url({{featuredimage}})"></div>
+									<div class="description">
+										<div class="title animated fadeInRight delay-1">{{post_title}}</div>
+										<div class="sousstitre animated fadeInRight delay-2">{{custom_fields.sous_titre}}</div>
+										<div class="promo animated fadeInRight delay-3">{{custom_fields.accroche_commerciale}}</div>
+										<div class="disponibilite animated fadeInRight delay-4">{{custom_fields.disponibilite}}</div>
+										<div class="prix animated fadeInRight delay-5">{{custom_fields.prix_promotionnel}}</div>
+									</div>
+								</div>
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+        </div>
+    </body>
+</html>
