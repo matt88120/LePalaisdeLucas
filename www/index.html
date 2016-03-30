@@ -84,11 +84,15 @@
 									<img src="{{featuredimage}}" class="animated fadeInUp delay-5 img-responsive"/>
 								</div>
 								<div class="right">
-									<div class="title animated fadeInRight delay-1">{{{post_title}}}<span>{{{custom_fields.sous_titre}}}</span></div>
-									<div class="accroche animated fadeInRight delay-2">{{{custom_fields.accroche_commerciale}}}</div>
-									<div class="description animated fadeInRight delay-3">{{{custom_fields.description_du_produit}}}</div>
-									<div class="parfums animated fadeInRight delay-4">{{{custom_fields.parfums_disponibles}}}</div>
-									<div class="personnes animated fadeInRight delay-5">Pour {{custom_fields.a_deguster_pour}} personne(s)</div>
+									<div class="title animated fadeInRight delay-1">{{{post_title}}}
+										{{#hassoustitre}}
+											<span>{{{custom_fields.sous_titre}}}</span>
+										{{/hassoustitre}}
+									</div>
+									{{#hasaccroche}}<div class="accroche animated fadeInRight delay-2">{{{custom_fields.accroche_commerciale}}}</div>{{/hasaccroche}}
+									{{#hasdescription}}<div class="description animated fadeInRight delay-3">{{{custom_fields.description_du_produit}}}</div>{{/hasdescription}}
+									{{#hasparfums}}<div class="parfums animated fadeInRight delay-4">{{{custom_fields.parfums_disponibles}}}</div>{{/hasparfums}}
+									{{#haspersonnes}}<div class="personnes animated fadeInRight delay-5">Pour {{custom_fields.a_deguster_pour}} personne(s)</div>{{/haspersonnes}}
 									<div class="prix animated fadeInRight delay-6">{{custom_fields.prix}}<sup>€</sup></div>
 								</div>
 							</script>
@@ -108,11 +112,13 @@
 								
 							</div>
 							<script id="template_catalogue" type="x-tmpl-mustache">
-								<div class="produit animated fadeIn" style="background-image: url({{featuredimage}})" data-target="{{ID}}">
+								<div class="produit animated fadeIn {{#iscoupdecoeur}}promopicto{{/iscoupdecoeur}}" style="background-image: url({{featuredimage}})" data-target="{{ID}}">
 									<div class="mentions">
 										<div class="titre">
 											{{post_title}}
-											<span>{{custom_fields.sous_titre}}</span>
+											{{#hassoustitre}}
+												<span>{{{custom_fields.sous_titre}}}</span>
+											{{/hassoustitre}}
 										</div>
 										<div class="prix">
 											{{custom_fields.prix}}<sup>€</sup>
@@ -162,10 +168,9 @@
 									<div class="image" style="background-image: url({{featuredimage}})"></div>
 									<div class="description">
 										<div class="title animated fadeInRight delay-1">{{post_title}}</div>
-										<div class="sousstitre animated fadeInRight delay-2">{{custom_fields.sous_titre}}</div>
-										<div class="promo animated fadeInRight delay-3">{{custom_fields.accroche_commerciale}}</div>
-										<div class="disponibilite animated fadeInRight delay-4">{{custom_fields.disponibilite}}</div>
-										<div class="prix animated fadeInRight delay-5">{{custom_fields.prix_promotionnel}}</div>
+										{{#hasaccroche}}<div class="promo animated fadeInRight delay-3">{{custom_fields.accroche_commerciale}}</div>{{/hasaccroche}}
+										{{#hasdispo}}<div class="disponibilite animated fadeInRight delay-4">{{custom_fields.disponibilite}}</div>{{/hasdispo}}
+										<div class="prix animated fadeInRight delay-5">{{{custom_fields.prix_promotionnel}}}</div>
 									</div>
 								</div>
 							</script>
