@@ -105,14 +105,12 @@
 								{{/subcategory}}
 							</script>
 						</div>
-						
 						<div class="grid animated fadeIn" id="grid-produits">
 							<div data-loader="circle-side" class="loader"></div>
-							<div class="catalogue">
-								
-							</div>
+							<div class="catalogue"></div>
 							<script id="template_catalogue" type="x-tmpl-mustache">
-								<div class="produit animated fadeIn {{#iscoupdecoeur}}promopicto{{/iscoupdecoeur}}" style="background-image: url({{featuredimage}})" data-target="{{ID}}">
+								<div class="produit animated fadeIn {{#iscoupdecoeur}}promopicto{{/iscoupdecoeur}}" data-target="{{ID}}">
+									<div class="produitload" data-loader="circle"></div>
 									<div class="mentions">
 										<div class="titre">
 											{{post_title}}
@@ -140,11 +138,6 @@
 						<div class="discover animated fadeInLeft">
 							Découvrez <br />nos produits<br />en promotion
 						</div>
-						<nav>
-							<ul>
-								
-							</ul>
-						</nav>
 						<a class="link animated fadeInUp delay-10" href="#categorie">
 							<div class="row">
 								<div class="col-xs-2">

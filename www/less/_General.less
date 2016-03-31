@@ -301,6 +301,8 @@ body {
 					}
 					.loader {
 						border-color: @orange;
+						.centerAll();
+						margin-top: -40px;
 					}
 					#lafiche {
 						display: block;
@@ -397,6 +399,14 @@ body {
 						background-size: cover;
 						background-position: center center;
 						background-repeat: no-repeat;
+						background-color: fadeOut(@noir, 60%);
+						.produitload {
+							.centerAll();
+							width: 20px;
+							height: 20px;
+							z-index: 999;
+							opacity: .5;
+						}
 						&.promopicto {
 							&:before {
 								display: block;
