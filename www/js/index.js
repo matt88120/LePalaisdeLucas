@@ -16,27 +16,24 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    initialize: function() {
-        this.bindEvents();
-    },
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-	onDeviceReady: function() {
-        /* Events */
-        document.addEventListener('backbutton', onBackKeyDown, false);
-        /* Orientation */
-        screen.lockOrientation('landscape');
-        /* Splashscreen */
-        navigator.splashscreen.show();
-		window.setTimeout(function () {
-		    navigator.splashscreen.hide();
-		}, splashDuration - fadeDuration);
-    }
+function onLoad() {
+    navigator.notification.alert("coucou");
+    document.addEventListener('deviceready', this.onDeviceReady, false);
+}
+
+function onDeviceReady() {
+	/* Events */
+    document.addEventListener('backbutton', onBackKeyDown, false);
+    /* Orientation */
+    screen.lockOrientation('landscape');
+    /* Splashscreen */
+    navigator.splashscreen.show();
+	window.setTimeout(function () {
+	    navigator.splashscreen.hide();
+	}, splashDuration - fadeDuration);
 };
 
-function onBackKeyDown(e) {
+function onBackKeyDown() {
+	console.log("coucou");
 	e.preventDefault();
-	navigator.notification.alert("Appui sur le bouton retour", "", "Ok", "Super");
 }
