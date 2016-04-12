@@ -22,16 +22,17 @@ var app = {
     },
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('backbutton', this.onBackKeyDown, false); 
     },
 	onDeviceReady: function() {
         screen.lockOrientation('landscape');
+        document.addEventListener('backbutton', this.onBackKeyDown, false); 
         navigator.splashscreen.show();
 		window.setTimeout(function () {
 		    navigator.splashscreen.hide();
 		}, splashDuration - fadeDuration);
     },
     onBackKeyDown: function(e) {
+	    alert("coucou");
 	    e.preventDefault();
     }
 };
