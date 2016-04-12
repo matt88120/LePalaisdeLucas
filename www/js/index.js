@@ -17,8 +17,9 @@
  * under the License.
  */
 function onLoad() {
-    navigator.notification.alert("coucou");
-    document.addEventListener('deviceready', this.onDeviceReady, false);
+    //navigator.notification.alert("coucou");
+    alert("coucou2");
+    //document.addEventListener('deviceready', this.onDeviceReady, false);
 }
 
 function onDeviceReady() {
