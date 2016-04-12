@@ -24,15 +24,19 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
 	onDeviceReady: function() {
+        /* Events */
+        document.addEventListener('backbutton', onBackKeyDown, false);
+        /* Orientation */
         screen.lockOrientation('landscape');
-        document.addEventListener('backbutton', this.onBackKeyDown, false); 
+        /* Splashscreen */
         navigator.splashscreen.show();
 		window.setTimeout(function () {
 		    navigator.splashscreen.hide();
 		}, splashDuration - fadeDuration);
-    },
-    onBackKeyDown: function(e) {
-	    alert("coucou");
-	    e.preventDefault();
     }
 };
+
+function onBackKeyDown(e) {
+	e.preventDefault();
+	navigator.notification.alert("Appui sur le bouton retour", "", "Ok", "Super");
+}
