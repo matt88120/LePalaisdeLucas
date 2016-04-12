@@ -22,12 +22,16 @@ var app = {
     },
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('backbutton', this.onBackKeyDown, false); 
     },
-       onDeviceReady: function() {
+	onDeviceReady: function() {
         screen.lockOrientation('landscape');
         navigator.splashscreen.show();
 		window.setTimeout(function () {
 		    navigator.splashscreen.hide();
 		}, splashDuration - fadeDuration);
     },
+    onBackKeyDown: function(e) {
+	    e.preventDefault();
+    }
 };
